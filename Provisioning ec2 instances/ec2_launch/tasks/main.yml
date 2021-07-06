@@ -1,0 +1,20 @@
+---
+# tasks file for ec2_launch
+- name: launch ec2 instances on AWS cloud
+  ec2:
+       key_name: "awsclass2020key"
+       instance_type: "t2.micro"
+       image: "ami-011c99152163a87ae"
+       wait: yes
+       count: 1
+       vpc_subnet_id: "subnet-d8b1b8b0"
+       group_id: "sg-06e3054442c20fe4e"
+       assign_public_ip: yes
+       region: "ap-south-1"
+       state: present
+       group: default
+       aws_access_key: "{{ accesskey }}"
+       aws_secret_key: "{{ secretkey }}"
+       instance_tags:
+               Name: "{{ item }}"
+  loop: "{{ Os_Names }}"
