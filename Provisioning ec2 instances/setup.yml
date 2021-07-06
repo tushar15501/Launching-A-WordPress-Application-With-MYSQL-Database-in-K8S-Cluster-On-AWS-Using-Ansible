@@ -1,0 +1,4 @@
+- hosts: "localhost"
+  roles:
+    - name: "Launching ec2-instance"
+      role: "/task3/ec2_launch"
