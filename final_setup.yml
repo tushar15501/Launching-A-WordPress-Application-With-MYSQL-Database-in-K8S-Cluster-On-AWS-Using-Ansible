@@ -1,0 +1,16 @@
+- hosts: master
+  roles:
+  - name: "Configuring Master Node"
+    role:  "/root/Multi-node-cluster/Master"
+- hosts: workers
+  vars_prompt:
+  - name: "master_token"
+    prompt: "Enter Token To Join To Master: "
+    private: no
+  roles:
+  - name: "Configuring Slave Node"
+    role:  "/root/Multi-node-cluster/Slaves"
+- hosts: master
+  roles:
+  - name: "Launching Wordpress and Mysql"
+    role: "/root/Multi-node-cluster/wordpress-mysql"
