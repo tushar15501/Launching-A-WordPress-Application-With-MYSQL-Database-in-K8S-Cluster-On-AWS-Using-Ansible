@@ -1,0 +1,8 @@
+---
+# vars file for ec2_launch
+accesskey: 'Enter your access key'
+secretkey: 'Enter your secret key'
+Os_Names:
+     - "K8S_Master"
+     - "K8S_Slave1"
+     - "K8S_Slave2"
